@@ -34,8 +34,20 @@ public class Help extends JDialog {
 
     private void addText() {
         String str;
-        try {
-            BufferedReader b=new BufferedReader(new FileReader(new File("src//guidance//HowToPlay.is")));
+        InputStream is = null; 
+        InputStreamReader isr = null;
+        BufferedReader b = null;
+
+        try{
+           // open input stream test.txt for reading purpose.
+           is = new FileInputStream("HowToPlay.txt");
+           // create new input stream reader
+           isr = new InputStreamReader(is);
+           
+           // create new buffered reader
+           b = new BufferedReader(isr);
+     
+           
             try {
                 while((str=b.readLine())!=null)
                     txt.append(str+"\n");
